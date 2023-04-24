@@ -1,0 +1,151 @@
+			"",				// MIN_TYPE(0);
+			"",				// HELLO(1);
+			"A",				// GUARD(2); data:A
+			// Admin
+			"BBLIBA",			// ADMIN_INFO(3); state:B, type:B, net_id:L, inner_id:I, field:B, data:A
+			"BIBA",				// ADMIN_INFO_CLAN(4); state:B, clan_id:I, field:B, data:A
+			"S",				// ADMIN_MESSAGE(5); message:S
+			"BIIBIS",			// SESSION_INFO(6); status:B, net_id_first:I, net_id_second:I, type:B, session_number:I, session_id:S
+
+			"B,IIIBBSBIIII[W]I[W][BI][BBB]I[B]",	// LOGIN(7); status:B, inner_id:I, unix_time:I, tag:I, can_offer:B, advertising:B, email:S, editor:B, inviter_id:I, register_time:I, logout_time:I, payment_time:I, items:[W], clan_application:I, news_repost:[W], discounts:[type:B, time:I], shaman_info:[skill_id:B, level_free:B, level_paid:B], key:I, services:[B]
+
+			"AI",				// INFO(8); data:A, mask:I
+			"AI",				// INFO_NET(9); data:A, mask:I
+			"BB[I]B",			// ROOM(10); location_id:B, sub_location:B, players:[I], is_private:B
+			"[I]",				// ONLINE(11); locations_online:[I]
+			"B,BBI",			// PLAY_WITH(12); type:B, location_id:B, sub_location:B, room_id:I
+			"IBBII",			// BAN(13); target_id:I, type:B, reason:B, moderator_id:I, duration:I
+			"IIB",				// BALANCE(14); coins:I, nuts:I, reason:B
+			"BB",				// FEATHERS(15); feathers:B, reason:B
+			"II",				// ENERGY_LIMITS(16); energy:I, mana:I
+			"IB",				// ENERGY(17); energy:I, reason:B
+			"IB",				// MANA(18); mana:I, reason:B
+			"IB",				// EXPERIENCE(19); exp:I, reason:B
+			"IB",				// SHAMAN_EXPERIENCE(20); shaman_exp:I, reason:B
+			"[BBI]",			// EXPIRATIONS(21); [type:B, exists:B, duration:I]
+			"[IB]",				// FRIENDS(22); [friend:I, removed:B]
+			"[BB]",				// FRIENDS_ONLINE(23); [location_id:B, count:B]
+			"[LBIII]",			// EVENTS(24); [id:L, type:B, actor_id:I, data:I, time:I]
+			"BIIIIII",			// BUY(25); status:B, player_id:I, good_id:I, coins:I, nuts:I, target_id:I, data:I
+			"BI",				// INVITE(26); status:B, player_id:I
+			"[IB]",				// RETURNED_FRIEND(27); [friend_id:I, success:B]
+
+			"[BBBI]",			// DAILY_QUESTS(28); [type:B, location:B, value:B, time:I]
+
+			"",				// LATENCY(29);
+
+			"B",				// RENAME(30); status:B
+
+			"S",				// XSOLLA_SIGNATURE(31); singature:S
+
+			"[B]",				// SMILES(32); smiles:[B]
+
+			"",				// BIRTHDAY(33);
+
+			"B",				// OFFERS(34); offer:B
+
+			"BB",				// DAILY_BONUS_DATA(35); day:B, have_bonus:B
+
+			"BII",				// PRODUCE_INFO(36); type:B, time_left:I, time_bonus:I
+			"[BA]",				// STORAGE_INFO(37); [type:B, data:A]
+
+			"[BB]",				// FLAGS(38); [type:B, value:B]
+			"[BB]",				// TRAINING(39); [type:B, value:B]
+			"B,BW",				// PROMO_BONUS(40); state:B, type:B, data:W
+			"B[B][WI]",			// BUNDLES(41); type:B, collections:[B], packages:[id:W, duration:I]
+
+			"BB,IIIIIIIWI[B][WI][W][W][BW]I",	// BONUSES(42); status:B, award_reason:B, coins:I, nuts:I, energy:I, mana:I, experience:I, vip_duration:I, mana_regeneration_duration:I, holiday_elements:W, holiday_booster_duration:I, collections:[B], temporary_packages:[package_id:W, duration:I], packages:[package_id:W], accessories:[accessory_id:W], items:[item_id:B, count:W], data:I
+
+			"[BW]",				// AWARD_COUNTERS(43); [counter_id:B, value:W]
+			"[BBI]",			// COLLECTIONS(44); collections:[type:B, unsigned_element_id:B, count:I]
+			"[B]",				// DECORATIONS(45); decoration_id:[B]
+
+			"BWB",				// TROPHIES(46); event:B, sub_index:W, trophy:B
+
+			"WBI",				// HOLIDAY_BALANCE(47); elements:W, tickets:B, rating:I
+			"I",				// HOLIDAY_LOTTERY(48); deferred_bonus_id:I
+
+			"BI",				// RATING_SCORES(49); rating_type:B, value:I
+			"BBI,I[I]",			// RATING_DIVISION(50); rating_type:B, new_season:B, time:I, division_id:I, elements_id:[I]
+			"BBI",				// RATING_TRANSITION(51); rating_type:B, transition_type:B, element_id:I
+			"B[I]",				// RATING_TOP(52); rating_type:B, elements:[I]
+
+			"[IBII]",			// GIFTS(53); [id:I, type:B, sender_id:I, time:I]
+			"[I]",				// GIFTS_TARGET(54); ids:[I]
+			"BI,B",				// GIFTS_ACCEPT(55); status:B, id:I, data:B
+
+			"[IBBIIWWI]",			// DEFERRED_BONUS(56); [id:I, award_reason:B, type:B, time:I, duration:I, bonus_id:W, bonus_count:W, bonus_duration:I]
+			"BI,BBWWI",			// DEFERRED_BONUS_ACCEPT(57); status:B, id:I, award_reason:B, type:B, bonus_id:W, bonus_count:W, bonus_duration:I
+
+			"BIS",				// CHAT_MESSAGE(58); chat_type:B, player_id:I, message:S
+			"B[IS]",			// CHAT_HISTORY(59); chat_type:B, messages:[player_id:I, message:S]
+
+			"BBB",				// COLLECTION_ASSEMBLE(60); status:B, type:B, unsigned_element_id:B
+			"BIIBB",			// COLLECTION_EXCHANGE(61); status:B, client_id:I, target_id:I, client_item:B, target_item:B
+			"BB",				// COLLECTION_PICKUP(62); unsigned_element_id:B, count:B
+
+			"[WBIBWB][WBB]",		// CLOTHES_STORAGE(63); packages:[id:W, level:B, expiration_time:I, is_weared:B, free_slot:W, award_reason:B], accessories:[id:W, is_weared:B, award_reason:B]
+			"I[W]",				// CLOTHES_CLOSEOUT(64); expiration_time:I, packages:[W]
+			"[BWB]",			// CLOTHES_WEAR(65); [kind:B, clothes_id:W, is_weared:B]
+			"[W]",				// CLOTHES_EXPIRED(66); package_id:[W]
+			"BWW",				// CLOTHES_SLOT(67); status:B, package_id:W, skill_id:W
+
+			"IB",				// ROOM_JOIN(68); player_id:I, is_playing:B
+			"I",				// ROOM_LEAVE(69); player_id:I
+			"I",				// ROOM_REQUEST_WORLD(70); target_id:I
+			"B,WIBIWAI",			// ROOM_ROUND(71); type:B, delay:W, map_id:I, mode:B, map_author:I, map_duration:W, map_data:A, rating:I
+			"BI",				// ROOM_PRIVATE(72); status:B, room_id:I
+
+			"IBFFFF,B",			// ROUND_HERO(73); player_id:I, keycode:B, pos_x:F, pos_y:F, vel_x:F, vel_y:F, health:B
+			"IBS",				// ROUND_CAST_BEGIN(74); player_id:I, item_id:B, data_json:S
+			"IBBB",				// ROUND_CAST_END(75); player_id:I, cast_type:B, item_id:B, success:B
+			"IB",				// ROUND_NUT(76); player_id:I, state:B
+			"BIB,WB",			// ROUND_HOLLOW(77); success:B, player_id:I, hollow_type:B, game_time:W, value:B
+			"IFFB,I",			// ROUND_DIE(78); player_id:I, pos_x:F, pos_y:F, reason:B, killer_id:I
+			"BIB",				// ROUND_RESPAWN(79); status:B, player_id:I, respawn_type:B
+			"[I][I]",			// ROUND_TEAM(80); red_player_id:[I], blue_player_id:[I]
+			"II",				// ROUND_FRAGS(81); red_frags:I, blue_frags:I
+			"I",				// ROUND_SYNCHRONIZER(82); player_id:I
+			"[I][B]",			// ROUND_SHAMAN(83); player_id:[I], teams:[B]
+
+			"[B[I]]",			// ROUND_BEASTS(84); [beast_type:B, ids:[I]]
+			"I[WFFFFFF]",			// ROUND_SYNC(85); player_id:I, info:[object_id:W, pos_x:F, pos_y:F, angle:F, angular:F, vel_x:F, vel_y:F]
+			"A",				// ROUND_WORLD(86); data:A
+			"[I[B[WB]]]",			// ROUND_SKILLS(87); [player_id:I, characters:[character:B, skills:[skill:W, level:B]]]
+			"IBB,BIS",			// ROUND_SKILL(88); player_id:I, type:B, state:B, data:B, target_id:I, script_json:S
+			"BII,I",			// ROUND_SKILL_ACTION(89); type:B, player_id:I, target_id:I, data:I
+			"IBB",				// ROUND_SKILL_SHAMAN(90); player_id:I, type:B, state:B
+			"IS",				// ROUND_COMMAND(91); player_id:I, data_json:S
+			"BI",				// ROUND_COMPENSATION(92); type:B, amount:I
+			"IBBB",				// ROUND_ELEMENT(93); player_id:I, kind:B, unsigned_element_id:B, index:B
+			"[BB]",				// ROUND_ELEMENTS(94); [kind:B, unsigned_element_id:B]
+			"IB",				// ROUND_SMILE(95); player:I, smile:B
+			"IB,I",				// ROUND_ZOMBIE(96); victim_id:I, is_first:B, player:I
+
+			"BBB[IBIII]I",			// MAPS_LIST(97); location_id:B, sublocation_id:B, mode:B, maps:[map_id:I, mark_id:B, player_id:I, rating:I, percent_exit:I], total_count:I
+			"IBIWAIIIIII",			// MAPS_MAP(98); id:I, mode:B, author_id:I, duration:W, data:A, positive_rating:I, negative_rating:I, exit_rating:I, dead_exits:I, plays_count:I, hollow_count:I
+			"I,BB",				// MAPS_ID(99); id:I, location_id:B, sublocation_id:B
+			"[II]",				// MAPS_CHECK(100); [inner_id:I, value:I]
+
+			"B,I",				// CLAN_STATE(101); status:B, clan_id:I
+			"AI",				// CLAN_INFO(102); data:A, mask:I
+			"[II]",				// CLAN_APPLICATION(103); [player_id:I, time:I]
+			"II",				// CLAN_BALANCE(104); coins:I, nuts:I
+			"[IBIIII]",			// CLAN_TRANSACTION(105); [player_id:I, type:B, coins:I, nuts:I, data:I, time:I]
+			"I[I]",				// CLAN_MEMBERS(106); clan_id:I, player_ids:[I]
+			"[IBBBW]",			// CLAN_PRIVATE_ROOMS(107); [room_id:I, location_id:B, sublocation_id:B, players_count:B, modes:W]
+			"I,I",				// CLAN_JOIN(108); player_id:I, clan_id:I
+			"I",				// CLAN_LEAVE(109); player_id:I
+			"[I],B",			// CLAN_SUBSTITUTE(110); player_ids:[I], status:B
+			"B,W",				// CLAN_TOTEM_BONUS(111); totem_id:B, bonus:W
+
+			"[BI],B",			// DISCOUNT_BONUS(112); bonuses:[bonus:B, time:I], reset_payment:B
+			"[W]",				// DISCOUNT_CLOTHES(113); clothes:[W]
+			"BI",				// DISCOUNT_USE(114); discount:B, data:I
+
+			"BB",				// BRANCHES(115); current:B, bought:B
+			"B,II",				// TRANSFER(116); status:B, player_id:I, time:I
+			"BIBB",				// NY_MODE_TAKE(117); status:B, player_id:I, index:B, count:B
+			"BIB",				// NY_MODE_PLACE(118); status:B, player_id:I, count:B
+
+			"[SBWW]",			// REQUEST_PROMO(119); [code:S, bonus:B, max_count:W, used_count:W]

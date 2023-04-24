@@ -1,0 +1,2 @@
+if ({{NAME}} === null)
+	return;

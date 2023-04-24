@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<flex-config>	
+	<compiler>
+		<source-path>
+			<path-element>./brightstat/src</path-element>
+		</source-path>
+		
+		<library-path >
+			<path-element>./brightstat/src</path-element>
+		</library-path>
+		
+		<external-library-path>
+		</external-library-path>
+	</compiler>
+
+	<include-sources>
+		<path-element>./brightstat/src</path-element>
+	</include-sources>
+</flex-config>

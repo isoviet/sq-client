@@ -1,0 +1,13 @@
+{
+	"name": "node-rockstone-as3-packet-generator",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"dependencies":
+	{
+		"fs-extra": "*",
+		"rg": "*"
+	},
+	"devDependencies": {},
+	"author": "nightrain912"
+}

@@ -1,0 +1,49 @@
+{
+	"packetsPath" : "./server.packets",
+	"outputPath" : "../src/protocol/packages/server/",
+
+	"parsers" : "./templates/parsers/",
+	"builders" : "./templates/builders/",
+	"readers" : "./templates/readers/",
+	"code" : "./templates/code/",
+	"codeParsing" : "./templates/codeParsing/",
+	"codeBuilding" : "./templates/codeBuilding/",
+	"codeReading" : "./templates/codeReading/",
+	"manager" : "./templates/manager/",
+	
+	"templates":
+	{
+		"packetName" : "Packet{{NAME}}",
+		"packetFile" : "Packet{{NAME}}.as",
+		"structFile" : "structs/{{NAME}}.as",
+		"managerFile" : "../ManagerPackets.as"
+	},
+
+	"abstract" :
+	{
+		"file" : "./templates/AbstractServerPacket.as",
+		"name" : "AbstractServerPacket.as"
+	},
+
+	"types":
+	{
+		"L"		: {"type" : "String",			"rawType" : "L",	"default" : "\"0\""},
+		"N"		: {"type" : "String",			"rawType" : "N",	"default" : "\"0\""},
+		"F"		: {"type" : "Number",			"rawType" : "F",	"default" : "-1"},
+		"W"		: {"type" : "int",			"rawType" : "W",	"default" : "-1"},
+		"B"		: {"type" : "int",			"rawType" : "B",	"default" : "-1"},
+		"I"		: {"type" : "int",			"rawType" : "I",	"default" : "-1"},
+		"A"		: {"type" : "ByteArray",		"rawType" : "A",	"default" : "null"},
+		"S"		: {"type" : "String",			"rawType" : "S",	"default" : "\"\""},
+		"array"		: {"type" : "Vector.<{{ITEM}}>",	"rawType" : "",		"default" : "null"}
+	},
+
+	"metaTypes":
+	{
+		"bool"		: {"type" : "Boolean",			"rawType" : "Boolean",	"default" : "false",	"parentType" : "B",	"prefix" : "is",	"postfix" : ""},
+		"object"	: {"type" : "Object",			"rawType" : "JSON",	"default" : "null",	"parentType" : "S",	"prefix" : "",		"postfix" : "json"},
+		"uint"	: {"type" : "uint",				"rawType" : "BYTE",	"default" : "NaN",	"parentType" : "B",	"prefix" : "unsigned", "postfix" : ""}
+	},
+
+	"counters" : ["i", "j", "k", "index"]
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Build SWC Library" default="build-swc-lib">
+	<!-- Include the build.properties file -->
+	<property file="./build.properties"/>
+
+	<!-- Point Ant to the Flex installation -->
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+
+	<!-- Define the commands to generate a SWC library -->
+	<target name="build-swc-lib" description="Generates a SWC library from a directory of as3 classes">
+		<echo>Generating SWC Library</echo>
+		<exec executable="${compc.exe}">
+			<arg line="-output ${OUTPUT}"/>
+			<arg line="-include-sources ${LIBRARY}"/>
+			<arg line="-source-path ${LIBRARY}"/>
+			<arg line="-target-player=9.0.0"/>
+			<arg line="-strict=true"/>
+		</exec>
+	</target>
+</project>

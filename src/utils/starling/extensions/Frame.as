@@ -1,0 +1,23 @@
+﻿package utils.starling.extensions
+{
+	public class Frame
+	{
+
+		public var particleHalfWidth:Number = 1.0;
+		public var particleHalfHeight:Number = 1.0;
+		public var textureX:Number = 0.0;
+		public var textureY:Number = 0.0;
+		public var textureWidth:Number = 1.0;
+		public var textureHeight:Number = 1.0;
+
+		public function Frame(nativeTextureWidth:Number = 64, nativeTextureHeight:Number = 64, x:Number = 0.0, y:Number = 0.0, width:Number = 64.0, height:Number = 64.0)
+		{
+			textureX = x / nativeTextureWidth;
+			textureY = y / nativeTextureHeight;
+			textureWidth = (x + width) / nativeTextureWidth;
+			textureHeight = (y + height) / nativeTextureHeight;
+			particleHalfWidth = (width) >> 1;
+			particleHalfHeight = (height) >> 1;
+		}
+	}
+}

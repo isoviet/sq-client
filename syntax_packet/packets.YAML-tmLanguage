@@ -1,0 +1,170 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: RG Packets
+scopeName: source.cpppackets
+fileTypes: [packets]
+uuid: bdd91146-233f-408e-b4bc-83feb5c6a4eb
+
+patterns:
+- include: '#other'
+- include: '#comment'
+- include: '#packet'
+
+
+repository:
+  comment:
+    name: comment.line.double-slash.cpppackets
+    begin: (^[\t]+//)
+    end: $
+
+  other:
+    name: comment.line.double-slash.cpppackets
+    patterns:
+    - match: (^\t+[^"\t].*$)
+      name: comment.line.double-slash.cpppackets
+
+    - begin: (^[^\t])
+      end: $
+      name: comment.line.double-slash.cpppackets
+
+  packet:
+    patterns:
+    - include: '#signature'
+    - include: '#title'
+    - include: '#struct'
+
+  signature:
+    begin: '(^)([\t]*)(")'
+    beginCaptures:
+      '3': {name: string.quoted.double.cpppackets}
+    end: '("\,)([\t]+)'
+    endCaptures:
+      '1': {name: string.quoted.double.cpppackets}
+    patterns:
+    - include: '#optional'
+    - include: '#signature_group'
+    - include: '#type'
+
+  type:
+    name: support.function.cpppackets
+    patterns:
+    - match: '[NBWILSFA]'
+      name: support.function.cpppackets
+
+    - match: .+
+      name: invalid.illegal.cpppackets
+
+  optional_type:
+    name: support.class.cpppackets
+    patterns:
+    - match: '[NBWILSFA]'
+      name: support.class.cpppackets
+
+    - match: .+
+      name: invalid.illegal.cpppackets
+
+  signature_group:
+    name: support.function.cpppackets
+    begin: '\['
+    beginCaptures:
+      '0': {name: keyword.control.cpppackets}
+    end: '\]'
+    endCaptures:
+      '0': {name: keyword.control.cpppackets}
+    patterns:
+    - include: '#signature_group'
+    - include: '#type'
+
+    - match: .+
+      name: invalid.illegal.cpppackets
+
+  signature_optional_group:
+    name: support.class.cpppackets
+    begin: '\['
+    beginCaptures:
+      '0': {name: keyword.control.cpppackets}
+    end: '\]'
+    endCaptures:
+      '0': {name: keyword.control.cpppackets}
+    patterns:
+    - include: '#optional_type'
+
+    - match: .+
+      name: invalid.illegal.cpppackets
+
+  optional:
+    begin: '\,'
+    beginCaptures:
+      '0': {name: keyword.control.cpppackets}
+    end: '(?=[$"])'
+    patterns:
+    - include: '#signature_optional_group'
+    - include: '#optional_type'
+
+    - match: .+
+      name: invalid.illegal.cpppackets
+
+  title:
+    name: keyword.control.cpppackets
+    patterns:
+    - match: '(// )([A-Z_]+)(\()([1-9][0-9]*)(\))(; ?)'
+      captures:
+        '1': {name: comment.block.documentation}
+        '2': {name: variable.parameter.cpppackets}
+        '3': {name: entity.name.type.cpppackets}
+        '4': {name: constant.numeric.cpppackets}
+        '5': {name: entity.name.type.cpppackets}
+        '6': {name: entity.name.type.cpppackets}
+
+    - match: '(// )(MIN_TYPE)(;)'
+      captures:
+        '1': {name: comment.block.documentation}
+        '2': {name: entity.name.function.cpppackets}
+        '3': {name: entity.name.type.cpppackets}
+
+  struct:
+    begin: '(?<= )'
+    end: '(?=$)'
+    patterns:
+    - include: '#struct_field'
+    - include: '#var_group'
+
+    - match: '\['
+      name: invalid.illegal.cpppackets
+
+  separated_type:
+    name: support.function.cpppackets
+    patterns:
+    - match: '(?<=[:\[])[NBWILSFA]'
+      name: support.function.cpppackets
+
+    - match: .+
+      name: invalid.illegal.cpppackets
+
+  struct_field:
+    begin: '([a-zA-Z][a-zA-Z0-9_]*)\:'
+    beginCaptures:
+      '1': {name: entity.name.function.cpppackets}
+    end: '(\,)|($)|(?=\])'
+    endCaptures:
+      '1': {name: entity.name.type.cpppackets}
+      '0': {name: support.class.cpppackets}
+    patterns:
+    - include: '#var_group'
+    - include: '#separated_type'
+
+  var_group:
+    name: support.function.cpppackets
+    begin: '\['
+    beginCaptures:
+      '0': {name: keyword.control.cpppackets}
+    end: '(\])(?=(\,)|(\])|$)'
+    endCaptures:
+      '1': {name: keyword.control.cpppackets}
+    patterns:
+    - include: '#var_group'
+    - include: '#struct_field'
+    - include: '#group'
+
+    - match: '[a-zA-Z]{2,}'
+      name: invalid.illegal.cpppackets

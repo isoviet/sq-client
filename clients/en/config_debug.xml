@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<debug>0</debug>
+
+	<version>
+		<minor>2</minor>
+	</version>
+
+	<host>88.212.206.112</host>
+	<port>22222</port>
+
+	<urls>
+		<errors>http://88.212.206.112/squirrels_eng/errors.php</errors>
+
+		<photo>
+			<base>https://squirrelseng.realcdn.ru/saved/</base>
+			<save>http://88.212.206.112/squirrels_eng/photo_save.php</save>
+		</photo>
+
+		<screenshot>http://88.212.206.112/squirrels_eng/screenshot_upload.php</screenshot>
+		<wall>https://squirrelseng.realcdn.ru/wall.swf</wall>
+		<history>https://squirrelseng.realcdn.ru/history.swf</history>
+		<historyHare>https://squirrelseng.realcdn.ru/hareHistoryEng.swf</historyHare>
+		<sounds>https://squirrelseng.realcdn.ru/sounds/</sounds>
+		<images>https://squirrelseng.realcdn.ru/images/</images>
+	</urls>
+
+	<improve>
+		<![CDATA[]]>
+	</improve>
+
+	<networks>
+		<vk id="0">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret></secret>
+		</vk>
+		<mm id="1">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>2c09e2afb5fb3bf89f610e832a97e0fb</secret>
+		</mm>
+		<mt id="3">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret></secret>
+		</mt>
+		<ok id="4">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>57F68801227E3953126D7F60</secret>
+		</ok>
+		<fb id="5">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<app>130880430367150</app>
+		</fb>
+		<fs id="30">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>012DED987E7ED52EC014</secret>
+		</fs>
+	</networks>
+</config>

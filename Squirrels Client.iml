@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="Debug">
+    <configurations>
+      <configuration name="Debug" pure-as="true" main-class="Main" output-file="client_release.swf" output-folder="$MODULE_DIR$/clients">
+        <dependencies target-player="18.0">
+          <entries>
+            <entry library-name="swc" library-level="project">
+              <dependency linkage="External" />
+            </entry>
+            <entry library-name="internal" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="Flex 4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="true" />
+            <entry key="compiler.define" value="CONFIG::release&#9;false&#10;CONFIG::debug&#9;true&#10;CONFIG::mobile&#9;false&#10;CONFIG::client&#9;true&#10;CONFIG::inner&#9;true&#10;CONFIG::external&#9;false" />
+          </map>
+          <option name="additionalOptions" value="-default-size 900 620" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="Editor" pure-as="true" main-class="editor.Main" output-file="editor_release.swf" output-folder="$MODULE_DIR$/clients">
+        <dependencies target-player="18.0">
+          <entries>
+            <entry library-name="swc" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="b8dcd65d-c4ab-476a-93eb-e13fd6a0dcd6">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="Flex 4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.define" value="CONFIG::client&#9;false&#10;CONFIG::debug&#9;true&#10;CONFIG::release&#9;false&#10;CONFIG::mobile&#9;false" />
+            <entry key="compiler.keep-as3-metadata" value="" />
+          </map>
+          <option name="additionalOptions" value="-default-size 900 660" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="Release" pure-as="true" main-class="Main" output-file="client_release.swf" output-folder="$MODULE_DIR$/clients">
+        <dependencies target-player="18.0">
+          <entries>
+            <entry library-name="swc" library-level="project">
+              <dependency linkage="External" />
+            </entry>
+            <entry library-name="internal" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="Flex 4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="false" />
+            <entry key="compiler.define" value="CONFIG::release&#9;true&#10;CONFIG::debug&#9;false&#10;CONFIG::mobile&#9;false&#10;CONFIG::client&#9;true&#10;CONFIG::inner&#9;false&#10;CONFIG::external&#9;true" />
+          </map>
+          <option name="additionalOptions" value="-default-size 900 620" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="Debug External" pure-as="true" main-class="Main" output-file="client_release.swf" output-folder="$MODULE_DIR$/clients">
+        <dependencies target-player="18.0">
+          <entries>
+            <entry library-name="swc" library-level="project">
+              <dependency linkage="External" />
+            </entry>
+            <entry library-name="internal" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="Flex 4.14.1" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="true" />
+            <entry key="compiler.define" value="CONFIG::release&#9;false&#10;CONFIG::debug&#9;true&#10;CONFIG::mobile&#9;false&#10;CONFIG::client&#9;true&#10;CONFIG::inner&#9;false&#10;CONFIG::external&#9;true" />
+          </map>
+          <option name="additionalOptions" value="-default-size 900 620" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/editor/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Flex 4.14.1" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="swc" level="project" />
+    <orderEntry type="library" exported="" name="MonsterDebugger" level="application" />
+    <orderEntry type="library" exported="" name="swc1" level="project" />
+    <orderEntry type="library" exported="" name="internal" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="b8dcd65d-c4ab-476a-93eb-e13fd6a0dcd6" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/editor/swc" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/editor/swc" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>

@@ -1,0 +1,1 @@
+obfuscate\SWFObfuscate.exe .\clients\client_release.swf .\clients\client_release.swf .\obfuscate\dict.txt

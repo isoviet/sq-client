@@ -1,0 +1,1 @@
+writeNetId({{NAME}}, buffer)

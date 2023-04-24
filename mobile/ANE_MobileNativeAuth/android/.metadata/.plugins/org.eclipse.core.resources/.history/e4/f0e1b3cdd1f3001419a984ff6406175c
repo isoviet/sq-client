@@ -1,0 +1,17 @@
+package ru.realgames.squirrels;
+
+import com.adobe.fre.FREContext;
+import com.adobe.fre.FREFunction;
+import com.adobe.fre.FREObject;
+
+public class VKAuthNative implements FREFunction {
+
+	@Override
+	public FREObject call(FREContext arg0, FREObject[] arg1) {
+		//String alertTitle = args[0].getAsString();
+		//String alertText = args[1].getAsString();
+		VKSdk.initialize(VKSdkListener listener, String appId, VKAccessToken token);
+		return null;
+	}
+
+}

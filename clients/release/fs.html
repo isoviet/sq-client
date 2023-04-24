@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Трагедия Белок</title>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script type="text/javascript">
+		<!--
+			var kv = location.href.split("&"), vars = {};
+			for (var i = 0; i < kv.length; i++)
+				vars[kv[i].split("=")[0]] = kv[i].split('=')[1];
+			if (vars.fsapi)
+				document.write('<scr' + 'ipt type="text/javascript" src="' + vars.fsapi + '"></scr' + 'ipt>');
+		//-->
+		</script>
+		<script type="text/javascript" src="widgets.js"></script>
+		<script type="text/javascript" src="analytics.js?4"></script>
+		<script type="text/javascript" src="functions.js?23"></script>
+		<script type="text/javascript">
+		<!--
+			function callApi(method, params, id)
+			{
+				client.api(method, params, function(data)
+				{
+					var obj = swfobject.getObjectById("flash-app");
+					obj.callback(data, id);
+				});
+			}
+
+			function callEvent(method, params, id)
+			{
+				client.event(method, function(data)
+				{
+					var obj = swfobject.getObjectById("flash-app");
+					obj.callback(data, id);
+				}, params);
+			}
+
+			var errorCallback = function(sa) {alert(sa);};
+			var client = new fsapi("squirrels", "13abc98d2e2395b3902f9350a302172d");
+			client.init(errorCallback);
+		//-->
+		</script>
+		<style type="text/css">
+			html, body {
+				font-family: Arial;
+				font-size: 12px;
+				margin: 0px;
+				padding: 0px;
+			}
+			img {
+				border: none;
+			}
+			#flash-app {
+				visibility: hidden;
+			}
+			h4 {
+				margin-bottom: 0px;
+				font-size: 14px;
+				color: #167513;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="achtung"></div>
+
+		<div id="flash-app">
+			<a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/></a>
+		</div>
+
+		<script type="text/javascript">
+		<!--
+			var params = {'api': "fs"};
+			loadScript("config.js");
+		//-->
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+buffer.writeFloat({{NAME}})

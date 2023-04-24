@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<flex-config>	
+	<compiler>
+		<source-path>
+			<path-element>.</path-element>
+		</source-path>
+		
+		<library-path >
+			<path-element>.</path-element>
+		</library-path>
+		
+		<external-library-path>
+		</external-library-path>
+	</compiler>
+
+	<include-sources>
+		<path-element>.</path-element>
+	</include-sources>
+</flex-config>

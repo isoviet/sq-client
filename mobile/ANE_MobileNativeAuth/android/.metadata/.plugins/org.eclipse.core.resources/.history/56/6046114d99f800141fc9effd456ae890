@@ -1,0 +1,120 @@
+package ru.realgames.squirrels;
+
+import ru.realgames.squirrels.auth.AuthInterface;
+import ru.realgames.squirrels.auth.AuthListener;
+import ru.realgames.squirrels.auth.AuthOK;
+import ru.realgames.squirrels.auth.AuthVK;
+import android.util.Log;
+
+import com.adobe.fre.FREContext;
+import com.adobe.fre.FREFunction;
+import com.adobe.fre.FREObject;
+
+public class NativeAuthActions implements FREFunction {
+
+	private static final String SOCIAL_VK = "VK";
+	private static final String SOCIAL_OK = "OK";
+	private static final String SOCIAL_NATIVE_UUID = "nativeUUID";
+	
+	private static final String ACTION_INIT = "init";
+	private static final String ACTION_LOGIN = "login";
+	private static final String ACTION_LOGOUT = "logout";
+	
+	private AuthInterface socialAuth = null;
+	private FREContext _context = null;
+	
+	public FREObject call(FREContext context, FREObject[] args) {
+		String action = "";
+		String[] scope = null;
+		
+		_context = context;
+		
+		try {
+			action = args[0].getAsString();
+			Log.i("NativeAuthActions", "Action:" + action);
+		} catch (Exception e) {
+			Log.e("NativeAuthActions", e.getMessage());
+		}
+		if (action.equals(ACTION_INIT)) {
+			onInit(context, args);
+		} else if (action.equals(ACTION_LOGIN)) {
+			onLogin(scope);
+		} else if (action.equals(ACTION_LOGOUT)) {
+			onLogout();
+		}
+		
+		return null;
+	}
+	
+	private final AuthListener callBack = new AuthListener() {
+
+		@Override
+		public void login(String[] params) {
+			
+		}
+
+		@Override
+		public void logout() {
+		}
+
+		@Override
+		public void onSuccess(String token) {
+			if (_context != null)
+				_context.dispatchStatusEventAsync("NativeAuthActions", "['onSuccess', " + token.toString() + "]");
+		}
+
+		@Override
+		public void onFail(String msg) {
+			if (_context != null)
+				_context.dispatchStatusEventAsync("NativeAuthActions", "['onFail', " + msg.toString() + "]");
+		}
+
+		@Override
+		public void onResume() {
+		}
+
+		@Override
+		public void onDestroy() {
+		}
+
+		@Override
+		public Boolean isLoggedIn() {
+			return null;
+		}
+		
+	};
+	
+	private void onInit(FREContext context, FREObject[] args) {
+		String socailType = "";
+		String appId = "";
+		
+		try {
+			socailType = args[1].getAsString();
+			appId = args[2].getAsString();
+			Log.i("onInit socailType: ", socailType);
+			Log.i("onInit appId: ", appId);
+			
+		} catch (Exception e) {
+			Log.e("NativeAuthActions onInit", e.getMessage());
+		}
+		
+		if (socailType.equals(SOCIAL_VK)) {
+			Log.i("onInit socialAuth: ", SOCIAL_VK);
+			socialAuth = new AuthVK(context, appId, callBack);
+		} else if (socailType.equals(SOCIAL_OK)) {
+			Log.i("onInit socialAuth: ", SOCIAL_OK);
+			socialAuth = new AuthOK(context, appId, callBack);
+		}
+		
+	}
+	
+	private void onLogin(String[] params) {
+		if (socialAuth != null)
+			socialAuth.login(params);
+	}
+	
+	private void onLogout() {
+		if (socialAuth != null)
+			socialAuth.logout();
+	}
+}

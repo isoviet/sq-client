@@ -1,0 +1,171 @@
+package squirrels.itsrealgames.com.api;
+
+import squirrels.itsrealgames.com.api.auth.AuthInterface;
+import squirrels.itsrealgames.com.api.auth.AuthListener;
+import squirrels.itsrealgames.com.api.auth.AuthNativeUUID;
+import squirrels.itsrealgames.com.api.auth.AuthOK;
+import squirrels.itsrealgames.com.api.auth.AuthVK;
+import android.content.Intent;
+import android.util.Log;
+
+import com.adobe.air.AndroidActivityWrapper.ActivityState;
+import com.adobe.fre.FREContext;
+import com.adobe.fre.FREFunction;
+import com.adobe.fre.FREObject;
+
+public class NativeAuthActions implements FREFunction {
+
+	private static final String TAG = "NativeAuthActions";
+	
+	private static final String SOCIAL_VK = "VK";
+	private static final String SOCIAL_OK = "OK";
+	private static final String SOCIAL_NATIVE_UUID = "nativeUUID";
+	
+	private static final String ACTION_INIT = "init";
+	private static final String ACTION_LOGIN = "login";
+	private static final String ACTION_LOGOUT = "logout";
+	private static final String ACTION_GET_USER = "getUser";
+	
+	private static final String EVENT_AUTH_SUCCESS = "authSuccess";
+	private static final String EVENT_AUTH_FAIL = "authFail";
+	private static final String EVENT_GET_USER = "onGetUser";
+	
+	private AuthInterface socialAuth = null;
+	private FREContext _context = null;
+	
+	public FREObject call(FREContext context, FREObject[] args) {
+		String action = "";
+		String[] scope = {};
+		
+		_context = context;
+		
+		try {
+			action = args[0].getAsString();
+		} catch (Exception e) {
+			Log.e(TAG, e.getMessage());
+		}
+		
+		if (action.equals(ACTION_INIT)) {
+			onInit(context, args);
+		} else if (action.equals(ACTION_LOGIN)) {
+			onLogin(scope);
+		} else if (action.equals(ACTION_LOGOUT)) {
+			onLogout();
+		} else if (action.equals(ACTION_GET_USER)) {
+			getUser();
+		}
+		
+		return null;
+	}
+	
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if (socialAuth != null) { socialAuth.onActivityResult(requestCode, resultCode, intent); }
+	}
+	
+	public void onActivityStateChanged(ActivityState state) {
+		switch ( state ) {  
+			case STARTED:
+				break;
+			case RESTARTED:
+				break;
+			case RESUMED:
+				if (socialAuth != null) { socialAuth.onResume(); }
+				break;
+			case PAUSED:
+				break;
+			case STOPPED:
+				break;
+			case DESTROYED:
+				if (socialAuth != null) { socialAuth.onDestroy(); }
+				break;
+		}  
+	}
+	
+	private final AuthListener callBack = new AuthListener() {
+		@Override
+		public void login(String[] params) {
+			
+		}
+
+		@Override
+		public void logout() {
+		}
+
+		@Override
+		public void onSuccess(String token) {
+			sendEvent(EVENT_AUTH_SUCCESS, token.toString());
+		}
+
+		@Override
+		public void onFail(String msg) {
+			sendEvent(EVENT_AUTH_FAIL, msg.toString());
+		}
+		
+		@Override
+		public void onResume() {
+		}
+
+		@Override
+		public void onDestroy() {
+		}
+
+		@Override
+		public Boolean isLoggedIn() {
+			return null;
+		}
+
+		@Override
+		public void onActivityResult(int requestCode, int resultCode,
+				Intent intent) {
+			// TODO Auto-generated method stub
+		}
+
+		@Override
+		public void getUser() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onGetUser(String response) {
+			sendEvent(EVENT_GET_USER, response.toString());	
+		}
+		
+	};
+	
+	private void sendEvent(String event, String value) {
+		if (_context != null)
+			_context.dispatchStatusEventAsync("NativeAuthActions", "{\"" + event + "\": true, \"value\":\"" + value + "\"}");
+	}
+	
+	private void onInit(FREContext context, FREObject[] args) {
+		String socailType = "";
+		String appId = "";
+		
+		try {
+			socailType = args[1].getAsString();
+			appId = args[2].getAsString();
+		} catch (Exception e) {
+			Log.e(TAG, e.getMessage());
+		}
+		
+		if (socailType.equals(SOCIAL_VK)) {
+			socialAuth = new AuthVK(context, appId, callBack);
+		} else if (socailType.equals(SOCIAL_OK)) {
+			socialAuth = new AuthOK(context, appId, callBack);
+		} else if (socailType.equals(SOCIAL_NATIVE_UUID)) {
+			socialAuth = new AuthNativeUUID(context, callBack);
+		}
+		
+	}
+	
+	private void onLogin(String[] params) {
+		if (socialAuth != null)
+			socialAuth.login(params);
+	}
+	
+	private void onLogout() {
+		if (socialAuth != null)
+			socialAuth.logout();
+	}
+}

@@ -1,0 +1,1 @@
+(new NetId(buffer)).toString()

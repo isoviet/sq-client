@@ -1,0 +1,1 @@
+readUnsignedByte(buffer)

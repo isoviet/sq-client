@@ -1,0 +1,59 @@
+package squirrels.itsrealgames.com.api;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import android.content.Intent;
+import android.content.res.Configuration;
+
+import com.adobe.fre.FREContext;
+import com.adobe.fre.FREFunction;
+import com.adobe.air.ActivityResultCallback;  
+import com.adobe.air.AndroidActivityWrapper;  
+import com.adobe.air.AndroidActivityWrapper.ActivityState;  
+import com.adobe.air.StateChangeCallback;  
+
+public class NativeAuthContext  extends FREContext implements ActivityResultCallback, StateChangeCallback   {
+
+	private NativeAuthActions mInstance = null;
+	
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public Map<String, FREFunction> getFunctions() {
+		Map<String, FREFunction> map = new HashMap<String, FREFunction>();
+		mInstance = new NativeAuthActions();
+		map.put("actions", mInstance);
+		return map;
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if (mInstance != null) {
+			mInstance.onActivityResult(requestCode, resultCode, intent);
+		}
+	}
+
+	@Override
+	public void onActivityStateChanged(ActivityState state) {
+		switch ( state ) {  
+		case STARTED:
+		case RESTARTED:
+		case RESUMED:
+		case PAUSED:
+		case STOPPED:
+		case DESTROYED:
+	}  
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

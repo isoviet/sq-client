@@ -1,0 +1,16 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.9">
+    <id>squirrels.itsrealgames.com.api</id> 
+    <versionNumber>1.0</versionNumber> 
+    <platforms> 
+        <platform name="Android-ARM"> 
+            <applicationDeployment>
+                <nativeLibrary>NativeAuth.jar</nativeLibrary>
+                <initializer>squirrels.itsrealgames.com.api.NativeAuth</initializer>
+            </applicationDeployment> 
+        </platform>
+        
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
+    </platforms> 
+</extension>

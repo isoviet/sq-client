@@ -1,0 +1,1 @@
+writeA(buffer, {{NAME}})

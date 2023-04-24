@@ -1,0 +1,75 @@
+package squirrels.itsrealgames.com.api.auth;
+
+import android.content.Context;
+import android.content.Intent;
+import android.telephony.TelephonyManager;
+
+import com.adobe.fre.FREContext;
+
+public class AuthNativeUUID implements AuthInterface {
+
+	private static final String MAG_ERROR_UUID_EMPTY = "uuid is empty";
+	private String uuid = null;
+	private AuthInterface mCallback = null;
+	
+	public AuthNativeUUID(FREContext context, AuthInterface callBack) {
+		Context baseContext = context.getActivity().getBaseContext();
+		mCallback = callBack;
+		
+		TelephonyManager tManager = (TelephonyManager)baseContext.getSystemService(Context.TELEPHONY_SERVICE);
+		uuid = tManager.getDeviceId();
+	}
+	
+	@Override
+	public void login(String[] params) {
+		if (uuid != null && uuid.length() > 0) {
+			onSuccess(uuid);
+		} else {
+			onFail(MAG_ERROR_UUID_EMPTY);
+		}
+	}
+
+	@Override
+	public void logout() {
+	}
+
+	@Override
+	public void onSuccess(String token) {
+		mCallback.onSuccess(token);
+	}
+
+	@Override
+	public void onFail(String msg) {
+		mCallback.onFail(msg);
+	}
+
+	@Override
+	public Boolean isLoggedIn() {
+		return false;
+	}
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,1 @@
+buffer.writeUTF(by.blooddy.crypto.serialization.JSON.encode({{NAME}}))

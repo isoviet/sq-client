@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<body>
+	<default>
+		<base>//squirrelseng.realcdn.ru/content/base274.swf</base>
+		<clothes>//squirrelseng.realcdn.ru/content/clothes100.swf</clothes>
+		<clothesHero>//squirrelseng.realcdn.ru/content/clothesHero40.swf</clothesHero>
+		<discounts>//squirrelseng.realcdn.ru/content/discounts8.swf</discounts>
+		<hero>//squirrelseng.realcdn.ru/content/hero19.swf</hero>
+		<news>//squirrelseng.realcdn.ru/content/news46.swf</news>
+		<offers>//squirrelseng.realcdn.ru/content/offers37.swf</offers>
+		<runtime>//squirrelseng.realcdn.ru/content/runtime122.swf</runtime>
+		<screens>//squirrelseng.realcdn.ru/content/screens67.swf</screens>
+		<lang>//squirrelseng.realcdn.ru/content/en59.lp</lang>
+	</default>
+</body>

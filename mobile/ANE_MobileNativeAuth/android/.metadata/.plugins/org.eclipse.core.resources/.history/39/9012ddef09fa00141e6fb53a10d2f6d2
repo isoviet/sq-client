@@ -1,0 +1,182 @@
+package squirrels.itsrealgames.com.api.auth;
+
+import java.util.Arrays;
+
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKScope;
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.VKSdkListener;
+import com.vk.sdk.VKUIHelper;
+
+import android.content.Intent;
+import android.util.Log;
+
+import com.adobe.fre.FREContext;
+import com.vk.sdk.api.VKApi;
+import com.vk.sdk.api.VKApiConst;
+import com.vk.sdk.api.VKError;
+import com.vk.sdk.api.VKParameters;
+import com.vk.sdk.api.VKRequest;
+import com.vk.sdk.api.VKRequest.VKRequestListener;
+import com.vk.sdk.api.VKResponse;
+import com.vk.sdk.dialogs.VKCaptchaDialog;
+import com.vk.sdk.util.VKUtil;
+
+public class AuthVK implements AuthInterface {
+	private final static String MSG_ERROR_TOKEN_EXPIRED = "token expired";
+	private AuthInterface mCallBack = null;
+	private String mAppId = "";
+	private FREContext mContext;
+	
+	private static final String[] sMyScope = new String[] {
+		VKScope.FRIENDS,
+		VKScope.WALL,
+		VKScope.PHOTOS,
+	};
+	
+	public AuthVK(FREContext context, String appId, AuthInterface callBack) {
+		String packageName = context.getActivity().getPackageName();
+		mAppId = appId;
+		mCallBack = callBack;
+		mContext = context;
+		VKUIHelper.onCreate(mContext.getActivity());
+		
+		
+		String[] fingerprints = VKUtil.getCertificateFingerprint(context.getActivity(), packageName);
+		String newString = Arrays.toString(fingerprints);
+		newString = newString.substring(1, newString.length()-1);
+		Log.i("VKAuth fingerprints", newString);
+		
+		VKSdk.initialize(sdkListener, mAppId );
+        
+        if (VKSdk.wakeUpSession()) {
+        	onSuccess(VKSdk.getAccessToken().accessToken);
+            return;
+        }
+	}
+	
+	private final VKSdkListener sdkListener = new VKSdkListener() {
+        @SuppressWarnings("deprecation")
+		@Override
+        public void onCaptchaError(VKError captchaError) {
+            new VKCaptchaDialog(captchaError).show();
+        }
+
+        @Override
+        public void onTokenExpired(VKAccessToken expiredToken) {
+        	Log.i("onTokenExpired", expiredToken.accessToken);
+            VKSdk.authorize(sMyScope);
+        }
+
+        @Override
+        public void onAccessDenied(final VKError authorizationError) {
+        	Log.i("onAccessDenied", authorizationError.errorMessage);
+        	onFail(authorizationError.errorMessage.toString());
+        }
+
+        @Override
+        public void onReceiveNewToken(VKAccessToken newToken) {
+        	Log.i("onReceiveNewToken", newToken.accessToken);
+        	onSuccess(newToken.accessToken);
+        }
+
+        @Override
+        public void onAcceptUserToken(VKAccessToken token) {
+        	Log.i("onAcceptUserToken", token.accessToken);
+        	onSuccess(token.accessToken);
+        }
+    };
+
+    @Override
+	public void logout() {
+    	VKSdk.logout();
+	}
+    
+	@Override
+	public void login(final String[] params) {
+		VKSdk.authorize(sMyScope);
+	}
+	
+	@Override
+	public void onSuccess(final String token) {
+		mCallBack.onSuccess(token);
+	}
+	
+	@Override
+	public void onFail(final String msg) {
+		mCallBack.onFail(msg);
+	}
+	
+	@Override
+	public void onResume() {
+		VKUIHelper.onResume(mContext.getActivity());
+		if (!VKSdk.isLoggedIn()) {
+			onFail(MSG_ERROR_TOKEN_EXPIRED);
+		}
+	}
+	
+	@Override
+	public void onDestroy() {
+		 VKUIHelper.onDestroy(mContext.getActivity());
+	}
+
+	@Override
+	public Boolean isLoggedIn() {
+		return VKSdk.isLoggedIn();
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		VKUIHelper.onActivityResult(requestCode, resultCode, intent); 
+		
+	}
+
+	@Override
+	public void getUser() {
+		 VKRequest request = VKApi.users().get(VKParameters.from(VKApiConst.FIELDS,
+                 "id,first_name,last_name,sex,bdate,city,country,photo_50,photo_100," +
+                 "photo_200_orig,photo_200,photo_400_orig,photo_max,photo_max_orig,online," +
+                 "online_mobile,lists,domain,has_mobile,contacts,connections,site,education," +
+                 "universities,schools,can_post,can_see_all_posts,can_see_audio,can_write_private_message," +
+                 "status,last_seen,common_count,relation,relatives,counters"));
+		 
+         request.secure = false;
+         request.useSystemLanguage = false;
+         request.executeWithListener(new VKRequestListener()
+     		{
+	     		@Override
+	     		public void onComplete(VKResponse response)
+	     		{
+	     			response.responseString;
+	     		}
+	
+	     		@Override
+	     		public void onError(VKError error)
+	     		{
+	     			
+	     		}
+	
+	     		@Override
+	     		public void onProgress(VKRequest.VKProgressType progressType, long bytesLoaded,
+	     		                       long bytesTotal)
+	     		{
+	     			// you can show progress of the request if you want
+	     		}
+	
+	     		@Override
+	     		public void attemptFailed(VKRequest request, int attemptNumber, int totalAttempts)
+	     		{
+	     					//String.format("Attempt %d/%d failed\n", attemptNumber, totalAttempts));
+	     		}
+     		});
+
+	}
+
+	@Override
+	public void onGetUser(String response) {
+		// TODO Auto-generated method stub
+		
+	}
+	 
+}

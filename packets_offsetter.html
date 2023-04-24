@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<label for="first">Сместить с пакета (включительно)</label>
+		<input type="text" id="first"></input>		
+		<label for="offset">Сместить на</label>
+		<input type="number" id="offset" value = "0"></input>
+		<button type="button" onClick = "offset_packets()">Сместить</button>
+		<div id = "info"></div>
+		<div style = "width:100%">
+			<textarea id = "packets" style = "width:100%; height:1000px"></textarea>
+		</div>
+
+
+		<script type="text/javascript">
+			offset_packets = function()
+			{
+				var offset = Number(document.getElementById('offset').value);
+				var text = document.getElementById('packets').value;
+				var first = document.getElementById('first').value;
+				var count = 0;
+				var start = false;
+
+				var packets = text.split('\n');
+				for (var i = 0; i < packets.length; i++)
+				{
+					if (!first || first == packet_name(packets[i]))
+						start = true;
+
+					if (!start)
+						continue;
+
+					packets[i] = offset_packet(packets[i], offset);
+					count++;
+				};
+
+				document.getElementById('packets').value = packets.join('\n');
+
+				if (!start)
+					document.getElementById('info').innerText = 'Не найден начальный пакет';
+				else
+					document.getElementById('info').innerText = 'Заменено пакетов: ' + count;
+			}
+
+			var offset_packet = function(packet, offset)
+			{
+				var regex = new RegExp('\\([0-9]+\\)', 'g');
+				return packet.replace(regex, function(text)
+				{
+					var number = Number(text.substring(1, text.length - 1));
+					number += offset;
+					return '(' + number + ')';
+				});
+			}
+
+			var packet_name = function(packet)
+			{
+				var regex = new RegExp('[A-Za-z_]+\\([0-9]+\\)', 'g');
+
+				var match = packet.match(regex);
+				
+				if (!match)
+					return '';
+
+				match = match[0].match(new RegExp('[A-Za-z_]+'));
+
+				if (!match)
+					return '';
+
+				return match[0];
+			}
+		</script>
+	</body>
+</html>

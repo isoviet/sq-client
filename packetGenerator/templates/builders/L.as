@@ -1,0 +1,1 @@
+writeUInt64({{NAME}}, buffer)

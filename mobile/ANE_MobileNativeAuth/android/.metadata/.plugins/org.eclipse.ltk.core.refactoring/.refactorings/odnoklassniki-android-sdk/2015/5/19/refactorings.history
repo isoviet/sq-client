@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;odnoklassniki-android-sdk.jar&apos; to &apos;libs&apos;&#x0D;&#x0A;- Original project: &apos;odnoklassniki-android-sdk&apos;&#x0D;&#x0A;- Destination element: &apos;libs&apos;&#x0D;&#x0A;- Original element: &apos;odnoklassniki-android-sdk.jar&apos;" description="Copy file" element1="bin/odnoklassniki-android-sdk.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1431083395560" target="/NativeAuth/libs" units="0" version="1.0"/>
+</session>

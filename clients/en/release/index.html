@@ -1,0 +1,267 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Squirrels</title>
+		<meta property="fb:app_id" content="1388050514768942" />
+		<meta property="og:url" content="https://apps.facebook.com/tragedyofsquirrels/" />
+		<meta property="og:site_name" content="Squirrels" />
+		<meta property="og:type" content="game" />
+		<meta property="og:title" content="Squirrels" />
+		<meta property="og:image" content="https://squirrelseng.realcdn.ru/images/logo158.png" />
+		<meta property="og:description" content="Multiplayer game with funny squirrels, that try to save self from apocalypse." />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
+		<script type="text/javascript" src="analytics.js?3"></script>
+		<script type="text/javascript" src="functions.js?4"></script>
+		<script type="text/javascript">
+		<!--
+			var protocol = "http://";
+			if (window.location.toString().indexOf("https://") >= 0)
+				protocol = "https://";
+
+			var apiVersion = "v2.7";
+			var appId = "1388050514768942";
+			var appUri = protocol + "apps.facebook.com/tragedyofsquirrels/";
+			var redirectUri = protocol + "squirrelseng.realcdn.ru/release/";
+			var permissions = "user_birthday,user_friends"; // Comma separated list of extended permissions
+			var currentUriPart = "";
+			var indexBegin = -1;
+
+			function init()
+			{
+				var ua = navigator.userAgent.toLowerCase();
+				if (ua.indexOf("opera") != -1)
+					achtung();
+
+				FB.init({'appId': appId, 'version': apiVersion, 'xfbml': true, 'cookie': true, 'oauth': true});
+				FB.getLoginStatus(handleLoginStatus);
+			}
+
+			function permissionsCallBack(response)
+			{
+				var permissionsArray = permissions.split(",");
+				var rerequest;
+
+				for (var i = 0; i < permissionsArray.length; i++)
+				{
+					rerequest = true;
+
+					for (var j = 0; j < response.data.length; j++)
+					{
+						if (response.data[j]['permission'] != permissionsArray[i])
+							continue;
+
+						rerequest = false;
+
+						if (response.data[j]['status'] == "granted")
+							continue;
+
+						requestAuthDialog();
+						return;
+					}
+
+					if (!rerequest)
+						continue;
+
+					requestAuthDialog();
+					return;
+				}
+			}
+
+			function requestAuthDialog()
+			{
+				FB.login(function (response) {}, {'scope': permissions, 'auth_type': "rerequest"});
+			}
+
+			function handleLoginStatus(response)
+			{
+				var location = window.location.toString();
+				var indexBegin = -1;
+				var currentUriPart = "";
+
+				if (response.authResponse)
+				{
+					FB.api('/' + apiVersion + '/me/permissions', permissionsCallBack);
+
+					if (location.indexOf("#") <= 0)
+					{
+						loadScript("config.js");
+						return;
+					}
+
+					indexBegin = location.indexOf("?request_ids");
+					if (indexBegin > 0)
+					{
+						currentUriPart = location.slice(indexBegin, location.indexOf("#"));
+						appUri = appUri + currentUriPart;
+					}
+
+					top.location.href = appUri;
+					return;
+				}
+
+				if (location.indexOf("error") >= 0)
+				{
+					document.getElementById("flash-app").innerHTML = "Access denied.";
+					return;
+				}
+
+				requestAuthDialog();
+			}
+		//-->
+		</script>
+
+
+		<style type="text/css">
+			html, body {
+				font-family: Arial;
+				font-size: 12px;
+				margin: 0px;
+				padding: 0px;
+				background-image: url(background_fb_frame.png);
+				background-repeat: no-repeat;
+				background-position: center 0;
+				background-color: #F5D8C6;
+			}
+			body {
+				margin: 3pt 0pt;
+				padding: 0pt;
+			}
+			h4 {
+				margin-bottom: 0px;
+				font-size: 14px;
+				color: #167513;
+			}
+			a {
+				color: #70421E;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			img {
+				border: none;
+			}
+				#flash-container {
+				margin: 0 auto;
+				width: 900px;
+			}
+			#flash-app {
+				visibility: hidden
+			}
+			.logo {
+				position: absolute;
+				width: 112px;
+				height: 39px;
+				left: 10px;
+				top: 10px;
+				background: url('data:image/PNG;base64,iVBORw0KGgoAAAANSUhEUgAAAEoAAAAaCAYAAAAQXsqGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjAxOUU3ODBDOUQ4MTExRTFBMThEODA5RUFCMTI4RUJFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjAxOUU3ODBEOUQ4MTExRTFBMThEODA5RUFCMTI4RUJFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDE5RTc4MEE5RDgxMTFFMUExOEQ4MDlFQUIxMjhFQkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDE5RTc4MEI5RDgxMTFFMUExOEQ4MDlFQUIxMjhFQkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5w9Y3MAAAKxUlEQVR42uRZC1RU1Rr+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') no-repeat;
+			}
+			.header {
+				width: 900px;
+				height: 39px;
+				margin: 0 auto;
+				position: relative;
+				background: #d7deeb url('data:image/PNG;base64,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') repeat-x 1px bottom;
+			}
+			.sn {
+				width: 150px;
+				height: 20px;
+				position: absolute;
+				top: 10px;
+				left: 110px;
+			}
+
+			#achtung {
+				font-size: 130%;
+				display: none;
+				text-align: center;
+				width: 732px;
+				padding: 10px;
+				font-family: "Trebuchet MS", sans-serif;
+				border: 4px solid black;
+			}
+			#achtung span {
+				color: #666;
+				font-weight: bold;
+			}
+
+			#close_achtung a {
+				display: block;
+				width: 9px;
+				height: 8px;
+				padding: 3px;
+				text-decoration: none;
+				text-align: center;
+				line-height: 3px;
+				float: right;
+				font-weight: bold;
+				font-size: 120%;
+				color: #919191;
+			}
+			#fb-root {
+				margin: 0pt;
+				padding: 0pt;
+			}
+			#fb-links {
+				text-align: center;
+				margin: 20px 0px 0px 0px;
+			}
+			#fb-links-container {
+				width: 900px;
+				height: 26px;
+				margin: 0 auto;
+			}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fb-root"></div><!-- required div -->
+
+		<script type="text/javascript">
+		<!--
+			(function()
+			{
+				var cw = document.createElement('script'); cw.type = 'text/javascript'; cw.async = true;
+				cw.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://clickwallads.s3.amazonaws.com/cwwidget.js';
+				var s = document.getElementsByTagName('head')[0]; s.appendChild(cw, s);
+			})();
+		//-->
+		</script>
+
+		<div class="header" style="border-top: 4px solid white; border-left: 4px solid white; border-right: 4px solid white;">
+			<div class="logo"></div>
+
+			<div class="sn"><div class="fb-like" data-href="https://apps.facebook.com/tragedyofsquirrels" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></div>
+			</div>
+		</div>
+
+		<div id="achtung"></div>
+
+		<div id="flash-container" style="border-bottom: 4px solid white; border-left: 4px solid white; border-right: 4px solid white;">
+			<div id="flash-app">
+				<img src="https://squirrelseng.realcdn.ru/release/images/logo128.png" alt="" />
+				<p></p>
+				<a href="https://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/></a>
+			</div>
+
+		<div id="fb-links-container">
+			<div id="fb-links">
+				<a href="https://squirrelseng.realcdn.ru/release/docs/privacy_policy.html" target="_blank">Privacy Policy</a>
+				<span> · </span>
+				<a href="https://support.itsrealgames.com/" target="_blank">Support</a>
+				<span> · </span>
+				<a href="https://www.facebook.com/belkigame" target="_blank">Facebook Page</a>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		<!--
+			var params = {'api': "fb", 'locale': "en"};
+			params['referrer'] = document.referrer.indexOf("ref=") > 0 ? document.referrer.substr(document.referrer.indexOf("mdref=") + 6) : "";
+
+			init();
+		//-->
+		</script>
+	</body>
+</html>

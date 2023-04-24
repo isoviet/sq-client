@@ -1,0 +1,5 @@
+package ru.realgames.squirrels.auth;
+
+public class AuthNativeUUID {
+
+}

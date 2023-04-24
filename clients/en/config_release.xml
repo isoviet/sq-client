@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<debug>1</debug>
+
+	<host>198.204.242.42</host>
+	<port>22222</port>
+	<ports>22122, 22222, 22322 | 22122, 22222, 22322</ports>
+
+	<urls>
+		<errors>//squirrels.itsrealgames.com/squirrels/errors.php</errors>
+
+		<photo>
+			<base>//squirrelseng.realcdn.ru/saved/</base>
+			<save>//squirrelseng.realcdn.ru/squirrels_eng/photo_save.php</save>
+		</photo>
+
+		<content>//squirrelseng.realcdn.ru/content.xml</content>
+
+		<achievements>//squirrelseng.realcdn.ru/release/achievements/</achievements>
+		<achievesImages>//squirrelseng.realcdn.ru/release/images/</achievesImages>
+
+		<screenshot>//squirrelseng.realcdn.ru/squirrels_eng/screenshot_upload.php</screenshot>
+		<emblem>//squirrelseng.realcdn.ru/squirrels_eng/emblem_upload.php</emblem>
+
+		<wall>//squirrelseng.realcdn.ru/wall.swf</wall>
+		<history>//squirrelseng.realcdn.ru/history.swf</history>
+		<historyHare>//squirrelseng.realcdn.ru/hareHistoryEng.swf</historyHare>
+		<sounds>//squirrelseng.realcdn.ru/sounds/</sounds>
+		<soundsConfig>//squirrelseng.realcdn.ru/sounds.xml</soundsConfig>
+		<images>//squirrelseng.realcdn.ru/images3/</images>
+		<previews>//squirrelseng.realcdn.ru/content/previews/</previews>
+		<previewsCast>//squirrelseng.realcdn.ru/content/previews/cast/</previewsCast>
+		<previewsClothes>//squirrelseng.realcdn.ru/content/previews/clothes/</previewsClothes>
+	</urls>
+
+	<networks>
+		<fb id="5">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<app>1388050514768942</app>
+			<buy_url>http://squirrelseng.realcdn.ru/squirrels_eng/buy_fb.php</buy_url>
+			<products_url>http://squirrelseng.realcdn.ru/squirrels_eng/products/</products_url>
+		</fb>
+		<sa id="32"></sa>
+		<kg id="33">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+		</kg>
+	</networks>
+</config>

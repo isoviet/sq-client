@@ -1,0 +1,19 @@
+package ru.realgames.squirrels.auth;
+
+public interface AuthInterface {
+
+	public abstract void login(String... params);
+	
+	public abstract void logout();
+	
+	public abstract void onSuccess(String token);
+
+	public abstract void onFail(String msg);
+
+	public abstract void isLoggedIn(): Bool;
+	
+	public abstract void onResume();
+	
+	public abstract void onDestroy();
+	
+}

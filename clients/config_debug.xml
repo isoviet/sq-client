@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<debug>0</debug>
+
+	<version>
+		<minor>2</minor>
+	</version>
+
+	<host>88.212.207.7</host>
+	<port>22230</port>
+
+	<urls>
+		<errors>http://88.212.207.7/squirrels/ru/errors.php</errors>
+		<emblem>http://88.212.206.112/squirrels/emblem_upload.php</emblem>
+
+		<photo>
+			<base>http://squirrelsa.realcdn.ru/saved2/</base>
+			<save>http://88.212.206.112/squirrels/photo_save.php</save>
+		</photo>
+
+		<screenshot>http://88.212.206.112/squirrels/screenshot_upload.php</screenshot>
+		<wall>http://squirrelsb.realcdn.ru/wall.swf</wall>
+		<history>http://squirrelsb.realcdn.ru/history.swf</history>
+		<historyHare>http://squirrelsa.realcdn.ru/test/hareHistory5.swf</historyHare>
+		<sounds>http://squirrelsa.realcdn.ru/test/sounds/</sounds>
+		<images>http://squirrelsa.realcdn.ru/test/images/</images>
+		<previews>http://squirrelsa.realcdn.ru/test/content/previews/</previews>
+		<previewsCast>http://squirrelsa.realcdn.ru/test/content/previews/cast/</previewsCast>
+		<content>http://squirrelsa.realcdn.ru/test/content.xml</content>
+		<offers>http://squirrelsa.realcdn.ru/test/offers.xml</offers>
+	</urls>
+
+	<improve>
+		<![CDATA[]]>
+	</improve>
+
+	<networks>
+		<vk id="0">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret></secret>
+		</vk>
+		<mm id="1">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>e00a8bb9c6bb78b29a08c02e2b3bb05a</secret>
+		</mm>
+		<mt id="3">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret></secret>
+		</mt>
+		<ok id="4">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>57F68801227E3953126D7F60</secret>
+		</ok>
+		<fb id="5">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<app>130880430367150</app>
+			<buy_url>http://88.212.207.7/squirrels/test/ru/buy_fb.php</buy_url>
+			<products_url>http://88.212.207.7/squirrels/test/eng/products/</products_url>
+		</fb>
+		<fs id="30">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>012DED987E7ED52EC014</secret>
+		</fs>
+		<sa id="32">
+			<welcome>
+				<![CDATA[]]>
+			</welcome>
+			<secret>ba61bc62bc457a13d1349b752705772f</secret>
+		</sa>
+	</networks>
+</config>

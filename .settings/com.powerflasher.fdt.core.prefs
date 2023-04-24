@@ -1,0 +1,25 @@
+com.powerflasher.fdt.core.CompatiblePlayers=External_SWF_Viewer\:Browser\:Standalone_Flash_Player
+com.powerflasher.fdt.core.CompilerArguments=-static-link-runtime-shared-libraries\=true\n-target-player\={playerVersion}\n-library-path+\="{flexSDK}/frameworks/locale/en_US"\n-default-frame-rate\=30\n-default-size\=900,620\n-verbose-stacktraces\=true\n-use-network\=true\n-debug\=false\n-mobile\=false\n-optimize\=true\n-omit-trace-statements\=false\n-renderMode\=direct
+com.powerflasher.fdt.core.CompilerConstants=CONFIG\:\:release\!true\nCONFIG\:\:debug\!false
+com.powerflasher.fdt.core.DefaultOutputFolder=clients
+com.powerflasher.fdt.core.DefaultPlayer=External_SWF_Viewer
+com.powerflasher.fdt.core.IncludeTestResources=false
+com.powerflasher.fdt.core.Language=AS3
+com.powerflasher.fdt.core.Manifests=
+com.powerflasher.fdt.core.PassClasspath=true
+com.powerflasher.fdt.core.PassDefines=true
+com.powerflasher.fdt.core.PassExterns=false
+com.powerflasher.fdt.core.PassMainclass=true
+com.powerflasher.fdt.core.PassManifests=true
+com.powerflasher.fdt.core.PassRsls=false
+com.powerflasher.fdt.core.PassSwcs=true
+com.powerflasher.fdt.core.PlatformType=WEB
+com.powerflasher.fdt.core.PlayerVersion=player
+com.powerflasher.fdt.core.ProjectTypeHint=Web
+com.powerflasher.fdt.core.Runtime=Flash_Player
+com.powerflasher.fdt.core.SdkName=Apache Flex 4.16.1 FP27.0 AIR27.0 en_US
+com.powerflasher.fdt.core.useProjectFormatterSettings=true
+com.powerflasher.fdt.core.useProjectMetadataTagSettings=false
+com.powerflasher.fdt.core.useProjectProblems.com.powerflasher.fdt.core.AS3RegionType=true
+com.powerflasher.fdt.core.useProjectProblems.com.powerflasher.fdt.core.MXMLRegionType=true
+eclipse.preferences.version=1

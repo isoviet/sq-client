@@ -1,0 +1,28 @@
+package squirrels.itsrealgames.com.api;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.adobe.fre.FREContext;
+import com.adobe.fre.FREFunction;
+import com.adobe.air.ActivityResultCallback;  
+import com.adobe.air.AndroidActivityWrapper;  
+import com.adobe.air.AndroidActivityWrapper.ActivityState;  
+import com.adobe.air.StateChangeCallback;  
+
+public class NativeAuthContext  extends FREContext implements ActivityResultCallback, StateChangeCallback   {
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public Map<String, FREFunction> getFunctions() {
+		Map<String, FREFunction> map = new HashMap<String, FREFunction>();
+		map.put("actions", new NativeAuthActions());
+		return map;
+	}
+
+}

@@ -1,0 +1,23 @@
+package squirrels.itsrealgames.com.api.auth;
+
+import android.content.Intent;
+
+public interface AuthInterface {
+
+	public abstract void login(String[] params);
+	
+	public abstract void logout();
+	
+	public abstract void onSuccess(String token, String userId);
+
+	public abstract void onFail(String msg);
+
+	public abstract Boolean isLoggedIn();
+	
+	public abstract void onResume();
+	
+	public abstract void onDestroy();
+	
+	public void onActivityResult(int requestCode, int resultCode, Intent intent);
+	
+}

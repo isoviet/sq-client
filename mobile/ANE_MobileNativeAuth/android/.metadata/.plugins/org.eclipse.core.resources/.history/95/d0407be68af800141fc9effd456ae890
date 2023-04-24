@@ -1,0 +1,117 @@
+package ru.realgames.squirrels.auth;
+
+import java.util.Arrays;
+
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKScope;
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.VKSdkListener;
+import com.vk.sdk.VKUIHelper;
+
+import android.util.Log;
+
+import com.adobe.fre.FREContext;
+import com.vk.sdk.api.VKError;
+import com.vk.sdk.dialogs.VKCaptchaDialog;
+import com.vk.sdk.util.VKUtil;
+
+public class AuthVK implements AuthInterface {
+	private final static String MSG_ERROR_TOKEN_EXPIRED = "token expired";
+	private AuthInterface _callBack = null;
+	private String _appId = "";
+	private FREContext _context;
+	
+	private static final String[] sMyScope = new String[] {
+		VKScope.FRIENDS,
+		VKScope.WALL,
+		VKScope.PHOTOS,
+	};
+	
+	public AuthVK(FREContext context, String appId, AuthInterface callBack) {
+		_appId = appId;
+		_callBack = callBack;
+		_context = context;
+		VKUIHelper.onCreate(_context.getActivity());
+		String packageName = context.getActivity().getPackageName();
+		
+		Log.i("Auth VK", "call constructor");
+		
+		String[] fingerprints = VKUtil.getCertificateFingerprint(context.getActivity().getBaseContext(), packageName);
+		String newString = Arrays.toString(fingerprints);
+		newString = newString.substring(1, newString.length()-1);
+		Log.i("VKAuth fingerprints", newString);
+		
+		VKSdk.initialize( sdkListener, _appId );
+        
+        if (VKSdk.wakeUpSession()) {
+        	onSuccess(VKSdk.getAccessToken().accessToken);
+            return;
+        }
+	}
+	
+	private final VKSdkListener sdkListener = new VKSdkListener() {
+        @SuppressWarnings("deprecation")
+		@Override
+        public void onCaptchaError(VKError captchaError) {
+            new VKCaptchaDialog(captchaError).show();
+        }
+
+        @Override
+        public void onTokenExpired(VKAccessToken expiredToken) {
+        	Log.i("onTokenExpired", expiredToken.accessToken);
+            VKSdk.authorize(sMyScope);
+        }
+
+        @Override
+        public void onAccessDenied(final VKError authorizationError) {
+        	Log.i("onAccessDenied", authorizationError.errorMessage);
+        	onFail(authorizationError.errorMessage.toString());
+        }
+
+        @Override
+        public void onReceiveNewToken(VKAccessToken newToken) {
+        	Log.i("onReceiveNewToken", newToken.accessToken);
+        	onSuccess(newToken.accessToken);
+        }
+
+        @Override
+        public void onAcceptUserToken(VKAccessToken token) {
+        	Log.i("onAcceptUserToken", token.accessToken);
+        	onSuccess(token.accessToken);
+        }
+    };
+
+    @Override
+	public void logout() {
+    	VKSdk.logout();
+	}
+    
+	@Override
+	public void login(final String...params) {
+		VKSdk.authorize(sMyScope);
+		Log.i("AuthVK!!!!!!!! login!!!!!", "AuthVK!!!!!!!! login!!!!!");
+	}
+	
+	@Override
+	public void onSuccess(final String token) {
+		_callBack.onSuccess(token);
+	}
+	
+	@Override
+	public void onFail(final String msg) {
+		_callBack.onFail(msg);
+	}
+	
+	@Override
+	public void onResume() {
+		VKUIHelper.onResume(_context.getActivity());
+		if (!VKSdk.isLoggedIn()) {
+			onFail(MSG_ERROR_TOKEN_EXPIRED);
+		}
+	}
+	
+	@Override
+	public void onDestroy() {
+		 VKUIHelper.onDestroy(_context.getActivity());
+	}
+}

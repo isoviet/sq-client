@@ -1,0 +1,10 @@
+*.swf
+*.iws
+bin/*
+obj/*
+packetGenerator/node_modules/rg/node_modules/*
+packetGenerator/node_modules/fs-extra/*
+packetGenerator/node_modules/graceful-fs/*
+packetGenerator/node_modules/jsonfile/*
+packetGenerator/node_modules/.bin/*
+out/*

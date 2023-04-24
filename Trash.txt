@@ -1,0 +1,45 @@
+﻿	
+	
+Бонус за второй купон:\n	Bonus for 2 coupon:\n
+Бонус за третий купон:\n	Bonus for 3 coupon:\n
+Бонус за четвертый купон:\n	Bonus for 4 coupon:\n
+Бонус за седьмой купон:\n	Bonus for 7 coupon:\n
+Бонус за восьмой купон:\n	Bonus for 8 coupon:\n
+Бонус за девятый купон:\n	Bonus for 9 coupon:\n
+Бонус за двенадцатый купон:\n	Bonus for 12 coupon:\n
+Бонус за тринадцатый купон:\n	Bonus for 13 coupon:\n
+Бонус за четырнадцатый купон:\n	Bonus for 14 coupon:\n
+Бонус за семнадцатый купон:\n	Bonus for 17 coupon:\n
+Бонус за восемндцатый купон:\n	Bonus for 18 coupon:\n
+Бонус за девятнадцатый купон:\n	Bonus for 19 coupon:\n
+{0} угощений	{0} treats
+Угощения	Treats
+угощение	treat
+VIP-статус\nна день	VIP-status\nfor a day
+Зелье Могущества\nна день	Mighty Potion\nfor day
+Случайный костюм\nна {0} дней	Random outfit\nfor {0} days
+Горячие выходные!	Hot Weekend!
+Участвуй в акции <b>«Горячие выходные»</b> и получай:	Take part in the <b>«Hot Weekend»</b> and get:
+Горячие выходные	Hot Weekend
+С помощью палок ты сможешь построить всё что угодно!	You can build anything you want with the help of blocks!
+Ящик послужит тебе ступенькой, также ты сможешь нажать им на кнопку.	A box will serve as a stair, also you can use it to press the button.
+Гирей ты сможешь привести в действие многие механизмы, например, лифты.	Use a weight to make things move, for example, a lift.
+С его помощью ты сможешь подпрыгнуть намного выше обычного, почти взлететь!	With its help you can jump higher than usual, almost fly!
+Портал поможет тебе мгновенно переместиться из одного места в другое.	A portal will help you quickly move to a different place.
+Молоток позволит тебе освободиться из капкана.	A hammer will help you free yourself from the trap
+Модная среда в Трагедии Белок! Невероятно крутые образы Чёрного кота и Синего демона уже в игре!	Fashion Wednesday in Race for Nuts! NEW incredibly AWESOME outfits of Black Cat and Blue Demon avaliable!
+Озеленение в трагедии белок!	Beautification in Racefornuts
+в трагедии белок	in Racefornuts
+Массовое озеленение в Трагедии Белок! Хочешь помочь планете бельчат? Тогда скорее заходи в игру!	Great Beautification in Racefornuts! Do you want to help squirrels? Then rather go into the game!
+Майские грозы	May thunderstorm
+Возрождайся, используя\nмагию «реинкарнация»,\nкомплекты автовоскрешения\nи одежду Ангела, Архангела и Скелета.	Come back to life using\nreincarnation magic,\nauto-resurrection kits and\nAngel, Archangel and Skeleton outfits.
+Осторожей, шипы	Caution! Spikes!
+Двойной прыжок.	Doublejump
+Морской круиз	Sea cruise
+Фруктовый бум	Fruit Boom
+Перейти	Go
+Щедрость Лепрекона не знает границ	Leprechaun's generosity with no limits
+Магия +1!	Magic +1!
+Дополнительный слот под магию! Совмещай лучшее!	Additional socket for magic! Make the best combination of them all!
+Щедрость Лепрекона не знает границ! Получай 17 монет ежедневно в течение 30 дней!	Leprechaun's generosity knows no bounds! Get 17 coins each day for 30 days!
+Магия +1. Дополнительный слот для магии! Совмещайте лучшее, друзья!	Magic +1. Additional socket for magic! Find the best combination!

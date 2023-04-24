@@ -1,0 +1,2 @@
+if (arraySize < {{INDEX}})
+	return;

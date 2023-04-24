@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<body>
+	<vk>
+		<base>//squirrels2.itsrealgames.com/content/base277.swf</base>
+		<clothes>//squirrels2.itsrealgames.com/content/clothes101.swf</clothes>
+		<clothesHero>//squirrels2.itsrealgames.com/content/clothesHero41.swf</clothesHero>
+		<discounts>//squirrels2.itsrealgames.com/content/discounts9.swf</discounts>
+		<hero>//squirrels2.itsrealgames.com/content/hero20.swf</hero>
+		<news>//squirrels2.itsrealgames.com/content/news47.swf</news>
+		<offers>//squirrels2.itsrealgames.com/content/offers38.swf</offers>
+		<runtime>//squirrels2.itsrealgames.com/content/runtime123.swf</runtime>
+		<screens>//squirrels2.itsrealgames.com/content/screens68.swf</screens>
+	</vk>
+	<default>
+		<base>//squirrels2.itsrealgames.com/content/base277.swf</base>
+		<clothes>//squirrels2.itsrealgames.com/content/clothes101.swf</clothes>
+		<clothesHero>//squirrels2.itsrealgames.com/content/clothesHero41.swf</clothesHero>
+		<discounts>//squirrels2.itsrealgames.com/content/discounts9.swf</discounts>
+		<hero>//squirrels2.itsrealgames.com/content/hero20.swf</hero>
+		<news>//squirrels2.itsrealgames.com/content/news47.swf</news>
+		<offers>//squirrels2.itsrealgames.com/content/offers38.swf</offers>
+		<runtime>//squirrels2.itsrealgames.com/content/runtime123.swf</runtime>
+		<screens>//squirrels2.itsrealgames.com/content/screens68.swf</screens>
+	</default>
+</body>
